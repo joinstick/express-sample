@@ -76,7 +76,7 @@ router.post("/createProfile", async (req, res) => {
 * */
 router.post("/updateNoteName", async (req, res) => {
   let info = await db.note_detail.update(
-    { id: req.body.id, note_type: { $elemMatch: { id: req.body.noteId } } } , //เป็นการหา Index
+    { id: req.body.id, note_type: { $elemMatch: { note_id: req.body.noteId } } } , //เป็นการหา Index
     { $set: { "note_type.$.name": req.body.name } } //index และ key ที่ต้องการให้เปลี่ยน
   );
   if (info.nModified == 1) {

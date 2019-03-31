@@ -10,7 +10,7 @@ let responseObject = {
 
 router.get("/getData",  (req, res) => {
     let result = Number(req.query.key1) + Number(req.query.key2);
-    res.send({ sum: result })
+    res.send({ sum:result })
 });
 
 router.get("/getTriangle",  (req, res) => {
